@@ -1,0 +1,12 @@
+version: "3"
+services:
+    keycloak:
+        image: quay.io/keycloak/keycloak:21.1
+        environment:
+            KEYCLOAK_ADMIN: admin
+            KEYCLOAK_ADMIN_PASSWORD: admin
+        ports:
+            - "8080:8080"
+        volumes:
+            - "${PWD}/keycloak.conf:/opt/keycloak/conf/keycloak.conf"
+        command: ["start-dev"]
